@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { Modal, View } from 'react-native'
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
+import thunk from 'redux-thunk'
 import { LiveConsole } from './containers/LiveConsole.js'
 import { LiveSettings } from './containers/LiveSettings.js'
 import { reducer } from './reducer.js'
 import { loadStore, saveMiddleware } from './storage.js'
 
-const store = createStore(reducer, applyMiddleware(saveMiddleware))
+const store = createStore(reducer, applyMiddleware(thunk, saveMiddleware))
 loadStore(store)
 
 /**

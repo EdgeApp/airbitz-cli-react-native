@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { Console } from '../components/Console.js'
-import { addCommand, pickCommandKey } from '../reducer.js'
+import { runCommand } from '../runCommand.js'
 
 function mapStateToProps (state) {
   const { history } = state
@@ -10,20 +10,9 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch) {
   return {
     onEnter (text) {
-      const command = {
-        command: text,
-        key: pickCommandKey(),
-        output: ''
-      }
-      if (/out/.test(text)) command.output = 'Output\ntext'
-      if (/ok/.test(text)) command.success = true
-      if (/bad/.test(text)) command.success = false
-
-      dispatch(addCommand(command))
+      dispatch(runCommand(text))
     }
   }
 }
 
-export const LiveConsole = connect(mapStateToProps, mapDispatchToProps)(
-  Console
-)
+export const LiveConsole = connect(mapStateToProps, mapDispatchToProps)(Console)

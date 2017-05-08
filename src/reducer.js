@@ -15,6 +15,14 @@ export function addCommand (command) {
   return { type: addCommand, command }
 }
 
+export function addCommandOutput (key, text) {
+  return { type: addCommandOutput, key, text }
+}
+
+export function finishCommand (key, success) {
+  return { type: finishCommand, key, success }
+}
+
 export function clearHistory () {
   return { type: clearHistory }
 }
@@ -33,6 +41,27 @@ export function reducer (state = intialState, action) {
   switch (action.type) {
     case addCommand:
       return { ...state, history: [action.command, ...history] }
+
+    case addCommandOutput:
+      return {
+        ...state,
+        history: history.map(row => {
+          if (row.key === action.key) {
+            const output = row.output !== '' ? row.output + '\n' : ''
+            return { ...row, output: output + action.text }
+          }
+          return row
+        })
+      }
+
+    case finishCommand:
+      return {
+        ...state,
+        history: history.map(
+          row =>
+            (row.key === action.key ? { ...row, success: action.success } : row)
+        )
+      }
 
     case clearHistory:
       return { ...state, history: [] }
