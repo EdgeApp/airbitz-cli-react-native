@@ -1,12 +1,10 @@
-const intialState = {
-  history: [],
-  settings: {
-    apiKey: '',
-    appId: '',
-    authServer: 'https://auth.airbitz.co/api',
-    fakeServer: false
-  }
+export const defaultSettings = {
+  apiKey: '',
+  appId: '',
+  authServer: 'https://auth.airbitz.co/api',
+  fakeServer: false
 }
+const intialState = { history: [], settings: defaultSettings }
 
 let nextCommandKey = 0
 export function pickCommandKey () {

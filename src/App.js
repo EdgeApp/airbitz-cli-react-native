@@ -1,34 +1,14 @@
 import React, { Component } from 'react'
 import { Modal, View } from 'react-native'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import { LiveConsole } from './containers/LiveConsole.js'
 import { LiveSettings } from './containers/LiveSettings.js'
-import { addCommand, pickCommandKey, reducer } from './reducer.js'
+import { reducer } from './reducer.js'
+import { loadStore, saveMiddleware } from './storage.js'
 
-const store = createStore(reducer)
-
-const history = [
-  {
-    key: pickCommandKey(),
-    command: 'recovery-setup blah no blah yes',
-    output: 'Something\nsomething',
-    success: undefined
-  },
-  {
-    key: pickCommandKey(),
-    command: 'pin-setup blah 1234',
-    output: 'Something\nsomething',
-    success: false
-  },
-  {
-    key: pickCommandKey(),
-    command: 'pin-login blah 1234',
-    output: 'Something\nsomething',
-    success: true
-  }
-]
-history.forEach(command => store.dispatch(addCommand(command)))
+const store = createStore(reducer, applyMiddleware(saveMiddleware))
+loadStore(store)
 
 /**
  * This is the settings control panel.
