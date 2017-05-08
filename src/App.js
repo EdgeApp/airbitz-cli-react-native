@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { Modal, View } from 'react-native'
 import { Console } from './components/Console.js'
+import { Settings } from './components/Settings.js'
 
 /**
  * This is the settings control panel.
@@ -29,16 +30,39 @@ export class App extends Component {
           output: 'Something\nsomething',
           success: true
         }
-      ]
+      ],
+      settings: {
+        apiKey: '',
+        appId: '',
+        authServer: 'https://auth.airbitz.co/api',
+        fakeServer: false
+      },
+      settingsVisible: false
     }
   }
 
   render () {
-    const { history } = this.state
+    const { history, settings, settingsVisible } = this.state
 
     return (
       <View style={{ flex: 1 }}>
-        <Console history={history} onEnter={text => this.addCommand(text)} />
+        <Modal
+          visible={settingsVisible}
+          onRequestClose={() => this.hideSettings()}
+        >
+          <Settings
+            onApply={settings => this.applySettings(settings)}
+            onCancel={() => this.hideSettings()}
+            onClear={() => this.clearHistory()}
+            settings={settings}
+          />
+        </Modal>
+
+        <Console
+          history={history}
+          onEnter={text => this.addCommand(text)}
+          onSettings={() => this.showSettings()}
+        />
       </View>
     )
   }
@@ -55,7 +79,26 @@ export class App extends Component {
       if (/ok/.test(text)) command.success = true
       if (/bad/.test(text)) command.success = false
 
-      return { history: [command, ...history] }
+      return { ...state, history: [command, ...history] }
     })
+  }
+
+  clearHistory () {
+    this.setState({ history: [], settingsVisible: false })
+  }
+
+  applySettings (settings) {
+    this.setState({
+      settings: settings,
+      settingsVisible: false
+    })
+  }
+
+  hideSettings () {
+    this.setState({ settingsVisible: false })
+  }
+
+  showSettings () {
+    this.setState({ settingsVisible: true })
   }
 }
