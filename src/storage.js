@@ -67,7 +67,7 @@ export function saveMiddleware (store) {
     const result = next(action)
     const after = store.getState()
 
-    if (before.history !== after.history) saveHistory(store)
+    if (before.history.length !== after.history.length) saveHistory(store)
     if (before.settings !== after.settings) saveSettings(store)
 
     return result

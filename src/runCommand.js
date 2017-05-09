@@ -56,6 +56,7 @@ function ensureSession (dispatch, session, settings) {
 export function runCommand (text) {
   return function (dispatch, getState) {
     const { session, settings } = getState()
+    let textOut = ''
 
     // Add the command to the list:
     const key = pickCommandKey()
@@ -74,17 +75,23 @@ export function runCommand (text) {
 
         const console = {
           log (...args) {
-            dispatch(addCommandOutput(key, args.join(' ')))
+            if (textOut !== '') textOut += '\n'
+            textOut += args.join(' ')
           }
         }
         return cmd.invoke(console, session, parsed.args)
       })
       .then(
         () => {
+          dispatch(addCommandOutput(key, textOut))
           dispatch(finishCommand(key, true))
         },
         e => {
-          dispatch(addCommandOutput(key, e.toString()))
+          console.log(e)
+          if (textOut !== '') textOut += '\n'
+          textOut += e.toString()
+
+          dispatch(addCommandOutput(key, textOut))
           dispatch(finishCommand(key, false))
         }
       )
