@@ -12,3 +12,5 @@ Once you clone this repo, just do:
     react-native run-ios
 
 You must have the package [`react-native-cli`](https://www.npmjs.com/package/react-native-cli) installed globally on your system.
+
+If you are developing on the core, the normal `npm link` technique does not work with React Native. Use the `copy-core.sh` script provided in this repo instead.
