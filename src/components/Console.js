@@ -143,6 +143,8 @@ export class Console extends Component {
   }
 
   renderItem ({ item }) {
+    const { onRemove = nop } = this.props
+
     let styles = pendingStyles
     if (item.success === true) styles = doneStyles
     if (item.success === false) styles = failedStyles
@@ -153,7 +155,10 @@ export class Console extends Component {
 
     return (
       <View style={styles.item} key={item.key}>
-        <TouchableOpacity onPress={() => this.setState({ text: item.command })}>
+        <TouchableOpacity
+          onPress={() => this.setState({ text: item.command })}
+          onLongPress={() => onRemove(item.key)}
+        >
           <View style={styles.row}>
             <Text style={styles.icon}>{icon}</Text>
             <Text style={styles.command}>{item.command}</Text>

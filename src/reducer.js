@@ -15,6 +15,10 @@ export function addCommand (command) {
   return { type: addCommand, command }
 }
 
+export function removeCommand (key) {
+  return { type: removeCommand, key }
+}
+
 export function addCommandOutput (key, text) {
   return { type: addCommandOutput, key, text }
 }
@@ -41,6 +45,12 @@ export function reducer (state = intialState, action) {
   switch (action.type) {
     case addCommand:
       return { ...state, history: [action.command, ...history] }
+
+    case removeCommand:
+      return {
+        ...state,
+        history: history.filter(row => row.key !== action.key)
+      }
 
     case addCommandOutput:
       return {
