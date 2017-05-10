@@ -10,13 +10,6 @@ import {
 } from './reducer.js'
 import { makeReactNativeIo } from 'react-native-airbitz-io'
 
-function format (arg) {
-  if (arg instanceof Error) {
-    return 'name' in arg ? arg.message : arg.message + '\n' + arg.stack
-  }
-  return arg.toString()
-}
-
 function makeFakeSession (settings) {
   const [io] = makeFakeIos(1)
   const context = makeContext({
@@ -91,7 +84,7 @@ export function runCommand (text) {
           dispatch(finishCommand(key, true))
         },
         e => {
-          dispatch(addCommandOutput(key, format(e)))
+          dispatch(addCommandOutput(key, e.toString()))
           dispatch(finishCommand(key, false))
         }
       )
