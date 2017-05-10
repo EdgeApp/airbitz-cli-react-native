@@ -13,9 +13,3 @@ copy_build () {
 
 copy_build airbitz-core-js
 copy_build airbitz-cli
-
-# Disklet isn't compatible with React Native, so hack around that:
-mkdir -p node_modules/path
-mkdir -p node_modules/fs
-echo "module.exports = null" > node_modules/fs/index.js
-echo "module.exports = null" > node_modules/path/index.js
