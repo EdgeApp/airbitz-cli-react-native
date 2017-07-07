@@ -3,9 +3,9 @@ import { makeContext, makeFakeIos } from 'airbitz-core-js'
 
 import crypto from 'react-native-fast-crypto'
 
-crypto.scrypt('mypasswd', 'mysalt', 16384, 8, 1, 32).then(result => {
-  console.log(result)
-})
+// crypto.scrypt('mypasswd', 'mysalt', 16384, 8, 1, 32).then(result => {
+//   console.log(result)
+// })
 
 
 import parse from 'lib-cmdparse'

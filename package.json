@@ -7,7 +7,7 @@
 		"test": "jest"
 	},
 	"dependencies": {
-		"airbitz-cli": "^0.3.2",
+		"airbitz-cli": "file:../airbitz-cli",
 		"lib-cmdparse": "^0.1.0",
 		"react": "16.0.0-alpha.6",
 		"react-native": "0.44.0",
