@@ -126,6 +126,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-fast-crypto')
     compile project(':react-native-randombytes')
     compile project(':react-native-fs')
     compile fileTree(dir: "libs", include: ["*.jar"])
