@@ -1,0 +1,23 @@
+cd ../ethereumjs-wallet
+rm -rf node_modules
+npm install
+
+cd ../airbitz-currency-ethereum
+rm -rf node_modules 
+rm -rf lib
+yarn
+
+cd ../airbitz-core-react-native
+rm -rf node_modules 
+rm -rf lib
+yarn
+
+cd ../airbitz-cli
+rm -rf node_modules 
+rm -rf lib
+yarn
+
+cd ../airbitz-cli-react-native
+rm -rf node_modules
+yarn
+
