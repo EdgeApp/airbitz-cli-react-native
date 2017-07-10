@@ -1,5 +1,13 @@
 import { findCommand, UsageError } from 'airbitz-cli'
 import { makeContext, makeFakeIos } from 'airbitz-core-js'
+
+import crypto from 'react-native-fast-crypto'
+
+// crypto.scrypt('mypasswd', 'mysalt', 16384, 8, 1, 32).then(result => {
+//   console.log(result)
+// })
+
+
 import parse from 'lib-cmdparse'
 import {
   addCommand,
@@ -8,7 +16,7 @@ import {
   pickCommandKey,
   updateSession
 } from './reducer.js'
-import { makeReactNativeIo } from 'react-native-airbitz-io'
+import { makeReactNativeIo } from 'airbitz-core-react-native'
 
 function makeFakeSession (settings) {
   const [io] = makeFakeIos(1)

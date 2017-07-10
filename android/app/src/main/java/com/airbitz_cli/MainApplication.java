@@ -3,6 +3,7 @@ package com.airbitz_cli;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import co.airbitz.fastcrypto.RNFastCryptoPackage;
 import com.bitgo.randombytes.RandomBytesPackage;
 import com.rnfs.RNFSPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFastCryptoPackage(),
             new RandomBytesPackage(),
             new RNFSPackage()
       );
