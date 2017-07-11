@@ -4,23 +4,9 @@ This is a mobile App which allows you to use the Airbitz CLI on your phone. It s
 
 ## Installing
 
-The current state of this repo (as of 2017-07-10) requires several repos synced alongside this one as the package.json references a local directory vs NPM or github
+Just use `npm install` to get the depenencies. The `yarn` tool does not work, due to bugs in the way it handles git dependencies.
 
-    git clone git@github.com:Airbitz/airbitz-cli-react-native.git
-    git clone git@github.com:Airbitz/airbitz-core-react-native.git
-    git clone git@github.com:Airbitz/airbitz-currency-ethereum.git
-    git clone git@github.com:Airbitz/ethereumjs-wallet.git
-    git clone git@github.com:Airbitz/airbitz-currency-shitcoin.git
-    git clone git@github.com:Airbitz/react-native-fast-crypto.git
-    git clone git@github.com:Airbitz/airbitz-cli.git
-    git clone git@github.com:Airbitz/airbitz-core-js.git
-
-    cd airbitz-cli-react-native
-    yarn
-
-    ./clean-abc
-
-    yarn
+    npm install
     react-native run-android
     # or...
     react-native run-ios
