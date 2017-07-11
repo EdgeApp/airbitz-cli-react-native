@@ -1,28 +1,31 @@
 {
-	"name": "airbitz_cli",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
-	},
-	"dependencies": {
-		"airbitz-cli": "git+ssh://git@github.com:Airbitz/airbitz-cli.git#82583ab402a03df6e7995b51fdb526dcf20536f2",
-		"lib-cmdparse": "^0.1.0",
-		"react": "16.0.0-alpha.6",
-		"react-native": "0.44.0",
-		"airbitz-core-react-native": "git+ssh://git@github.com:Airbitz/airbitz-core-react-native.git#5b205554e2c305e75abf12dd4ec27a6e5d4d3e03",
-		"react-redux": "^5.0.4",
-		"redux": "^3.6.0",
-		"redux-thunk": "^2.2.0"
-	},
-	"devDependencies": {
-		"babel-jest": "20.0.0",
-		"babel-preset-react-native": "1.9.1",
-		"jest": "20.0.0",
-		"react-test-renderer": "16.0.0-alpha.6"
-	},
-	"jest": {
-		"preset": "react-native"
-	}
+  "name": "airbitz_cli",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "updot": "dotdotdep",
+    "test": "jest"
+  },
+  "dependencies": {
+    "airbitz-cli": "git+ssh://git@github.com:Airbitz/airbitz-cli.git#82583ab402a03df6e7995b51fdb526dcf20536f2",
+    "airbitz-core-react-native": "git+ssh://git@github.com:Airbitz/airbitz-core-react-native.git#d0ecd1f37aedbd02ac81c4d071d1ce307c320b44",
+    "lib-cmdparse": "^0.1.0",
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.44.0",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "babel-jest": "20.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "20.0.0",
+    "dotdotdep": "git+ssh://git@github.com:Airbitz/dotdotdep.git#e4714aea53a1f9c9a81b68b956c29e24a8fc26a1",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
 }
