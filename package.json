@@ -22,7 +22,7 @@
     "babel-jest": "20.0.0",
     "babel-preset-react-native": "1.9.1",
     "jest": "20.0.0",
-    "dotdotdep": "git+ssh://git@github.com:Airbitz/dotdotdep.git#9036675bf04b18b2b262172ff182b199fadbc3b3",
+    "dotdotdep": "git+ssh://git@github.com:Airbitz/dotdotdep.git#7cc65dd70affbd025d7f8054b36e3bd91d03ece7",
     "react-test-renderer": "16.0.0-alpha.6"
   },
   "jest": {
