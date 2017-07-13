@@ -8,8 +8,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "airbitz-cli": "git+ssh://git@github.com:Airbitz/airbitz-cli.git#82583ab402a03df6e7995b51fdb526dcf20536f2",
-    "airbitz-core-react-native": "git+ssh://git@github.com:Airbitz/airbitz-core-react-native.git#d0ecd1f37aedbd02ac81c4d071d1ce307c320b44",
+    "airbitz-cli": "git+ssh://git@github.com:Airbitz/airbitz-cli.git",
+    "airbitz-core-react-native": "git+ssh://git@github.com:Airbitz/airbitz-core-react-native.git",
     "lib-cmdparse": "^0.1.0",
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
@@ -22,7 +22,7 @@
     "babel-jest": "20.0.0",
     "babel-preset-react-native": "1.9.1",
     "jest": "20.0.0",
-    "dotdotdep": "git+ssh://git@github.com:Airbitz/dotdotdep.git#7cc65dd70affbd025d7f8054b36e3bd91d03ece7",
+    "dotdotdep": "git+ssh://git@github.com:Airbitz/dotdotdep.git",
     "react-test-renderer": "16.0.0-alpha.6"
   },
   "jest": {
