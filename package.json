@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "updot": "dotdotdep",
+    "updot": "updot",
     "test": "jest"
   },
   "dependencies": {
@@ -22,8 +22,8 @@
     "babel-jest": "20.0.0",
     "babel-preset-react-native": "1.9.1",
     "jest": "20.0.0",
-    "dotdotdep": "git+ssh://git@github.com:Airbitz/dotdotdep.git",
-    "react-test-renderer": "16.0.0-alpha.6"
+    "react-test-renderer": "16.0.0-alpha.6",
+    "updot": "^1.0.3"
   },
   "jest": {
     "preset": "react-native"
