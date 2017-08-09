@@ -77,7 +77,13 @@ export function runCommand (text) {
         const console = {
           log (...args) {
             if (textOut !== '') textOut += '\n'
-            textOut += args.join(' ')
+            for (const arg of args) {
+              if (typeof arg === 'object') {
+                textOut += JSON.stringify(arg, null, 2) + '\n'
+              } else {
+                textOut += arg + ' '
+              }
+            }
           }
         }
         return cmd.invoke(console, session, parsed.args)
